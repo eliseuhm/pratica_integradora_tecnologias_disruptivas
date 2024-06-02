@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
+import PropTypes from 'prop-types';
+import { FormControl, InputLabel, Input, FormHelperText, MenuItem, Select, Grid, Card, CardHeader, CardContent, CardActions, Button } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
@@ -156,6 +157,20 @@ const CriarTarefa = ({handleClose, tarefas, setTarefas}) =>{
     </Grid>
   );
 }
+
+CriarTarefa.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  tarefas: PropTypes.arrayOf(PropTypes.shape({
+    idTarefa: PropTypes.number.isRequired,
+    tituloTarefa: PropTypes.string.isRequired,
+    descricaoTarefa: PropTypes.string.isRequired,
+    inicioTarefa: PropTypes.string.isRequired,
+    fimTarefa: PropTypes.string.isRequired,
+    recursoTarefa: PropTypes.string.isRequired,
+    statusTarefa: PropTypes.string.isRequired,
+  })).isRequired,
+  setTarefas: PropTypes.func.isRequired,
+};
 
 const style = {
   position: 'absolute',
